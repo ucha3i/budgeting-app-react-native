@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 // import { Ionicons } from '@expo/vector-icons'
 import styled from "styled-components"
+import { connect } from 'react-redux'
 
 export const AddExpense = (props) => {
   const [expense, setExpense] = useState("")
@@ -23,11 +24,8 @@ export const AddExpense = (props) => {
     Alert.alert('Expense saved!')
   }
 
-  /* const clickedIcon = () => {
-    alert("Button pressed")
-  } */
-
   return (
+    
     
     <View style={styles.container}>
       <View style={styles.form}>
@@ -57,51 +55,15 @@ export const AddExpense = (props) => {
           }}
         />
 
-        {/* <View style={styles.iconsContainer}>
-          <IconButton>
-            <Ionicons
-              color={"#fff"}
-              style={styles.icon}
-              name="ios-home"
-            />
-          </IconButton>
-          <IconButton>
-            <Ionicons
-              color={"#fff"}
-              style={styles.icon}
-              name="ios-contacts"
-            />
-          </IconButton>
-          <IconButton>
-            <Ionicons
-              color={"#fff"}
-              style={styles.icon}
-              name="ios-cafe"
-            />
-          </IconButton>
-
-          <IconButton>
-            <Ionicons
-              color={"#fff"}
-              style={styles.icon}
-              name="ios-restaurant"
-            />
-          </IconButton>
-          <IconButton onPress={clickedIcon}>
-            <Ionicons
-              color={"#fff"}
-              style={styles.icon}
-              name="ios-wine"
-            />
-          </IconButton>
-
-        </View> */}
-
         <Button onPress={() => saveData()}>
           <ButtonText> Save expense! </ButtonText>
         </Button>
 
-        <Button onPress={() => props.navigation.replace("LandingPage")}>
+        <Button onPress={() => props.navigation.replace("Expenses")}>
+          <ButtonText> All expenses </ButtonText>
+        </Button>
+
+        <Button onPress={() => props.navigation.replace("Home")}>
           <ButtonText> Back </ButtonText>
         </Button>
 
@@ -110,13 +72,6 @@ export const AddExpense = (props) => {
     </View>
   )
 }
-
-/* const IconButton = styled.TouchableOpacity`
-  width: 55;
-  border: 1px solid white;
-  border-radius: 5;
-  align-items: center;
-` */
 
 const Button = styled.TouchableOpacity`
   background-color: transparent;

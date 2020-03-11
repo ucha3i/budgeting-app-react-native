@@ -39,8 +39,12 @@ export const AddCategory = (props) => {
         <Button onPress={() => saveData()}>
           <ButtonText> Add category </ButtonText>
         </Button>
+
+        <Button onPress={() => props.navigation.replace("Categories")}>
+          <ButtonText> All categories </ButtonText>
+        </Button>
       
-        <Button onPress={() => props.navigation.replace("LandingPage")}>
+        <Button onPress={() => props.navigation.replace("Home")}>
           <ButtonText> Back </ButtonText>
         </Button>
       </View>

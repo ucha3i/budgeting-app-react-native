@@ -3,13 +3,15 @@ import { createStackNavigator, TransitionPresets } from 'react-navigation-stack'
 import { HomeView } from '../screens/HomeView'
 import { AddExpense } from "../screens/AddExpense"
 import { AddCategory } from "../screens/AddCategory"
+import { ExpensesList } from "../screens/ExpensesList"
+import { CategoriesList } from "../screens/CategoriesList"
 
 const PageNavigator = createStackNavigator({
   Home: HomeView,
   Expense: AddExpense,
   Category: AddCategory,
-  //ExpensesList: Expenses,
-  //CategoriesList: Categories,
+  Expenses: ExpensesList,
+  Categories: CategoriesList,
 },
   {
     defaultNavigationOptions: {
