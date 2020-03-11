@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from "styled-components/native"
+// import ImageBackground from 'react-native'
 
-export const LandingPageScreen = (props) => {
+export const HomeView = (props) => {
   return (
     <View>
+      
       <Text>Budget</Text>
       <SubText>Keep track of your expenses</SubText>
       <Button onPress={() => props.navigation.replace("Expense")}>
@@ -12,11 +14,12 @@ export const LandingPageScreen = (props) => {
       <Button onPress={() => props.navigation.replace("Category")}>
         <ButtonText> New category</ButtonText>
       </Button>
+      
     </View>
   )
 }
 
-LandingPageScreen.navigationOptions = {
+HomeView.navigationOptions = {
   headerTitle: "",
   headerStyle: {
     backgroundColor: "papayawhip"
@@ -61,4 +64,4 @@ const ButtonText = styled.Text`
     text-align: center;
 `
 
-export default LandingPageScreen
+export default HomeView

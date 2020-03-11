@@ -1,13 +1,15 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
-import { LandingPageScreen } from '../screens/LandingPageScreen'
+import { HomeView } from '../screens/HomeView'
 import { AddExpense } from "../screens/AddExpense"
 import { AddCategory } from "../screens/AddCategory"
 
 const PageNavigator = createStackNavigator({
-  LandingPage: LandingPageScreen,
+  Home: HomeView,
   Expense: AddExpense,
   Category: AddCategory,
+  //ExpensesList: Expenses,
+  //CategoriesList: Categories,
 },
   {
     defaultNavigationOptions: {

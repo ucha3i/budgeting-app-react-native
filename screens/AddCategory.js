@@ -17,7 +17,6 @@ export const AddCategory = (props) => {
   }
 
   return (
-
     <View style={styles.container}>
       <View style={styles.form}>
         <TextInput
@@ -40,7 +39,7 @@ export const AddCategory = (props) => {
         <Button onPress={() => saveData()}>
           <ButtonText> Add category </ButtonText>
         </Button>
-
+      
         <Button onPress={() => props.navigation.replace("LandingPage")}>
           <ButtonText> Back </ButtonText>
         </Button>
@@ -48,7 +47,8 @@ export const AddCategory = (props) => {
 
     </View>
   )
-}
+} 
+
 
 const Button = styled.TouchableOpacity`
   background-color: transparent;
