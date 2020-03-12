@@ -8,7 +8,7 @@ import expenses from "../reducers/expenses"
 
 const Categories = (props) => {
   return (
-    <View>
+    <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
       {props.categories.map(category => {
         return (<Category key={category["id"]} name={category.name} />);
       })}

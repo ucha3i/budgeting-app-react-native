@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
-// import { Ionicons } from '@expo/vector-icons'
 import styled from "styled-components"
 import { connect } from 'react-redux'
+import { Ionicons } from '@expo/vector-icons'
 
 export const AddExpense = (props) => {
   const [expense, setExpense] = useState("")
@@ -56,7 +56,7 @@ export const AddExpense = (props) => {
         />
       </View>
 
-      <Button onPress={() => saveData()}>
+      {/* <Button onPress={() => saveData()}>
         <ButtonText> Save expense! </ButtonText>
       </Button>
 
@@ -66,28 +66,51 @@ export const AddExpense = (props) => {
 
       <Button onPress={() => props.navigation.replace("Home")}>
         <ButtonText> Back </ButtonText>
-      </Button>
+      </Button> */}
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
+        <IconButton>
+          <Ionicons onPress={() => saveData()}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-save"
+          />
+        </IconButton>
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Expenses")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-list"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Home")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-home"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Category")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="md-pricetags"
+          />
+        </IconButton>
+      </View>
 
     </View>
   )
-}
 
-const Button = styled.TouchableOpacity`
-  background-color: #e98074;
-  border-radius: 50;
-  margin-top: 30;
-  margin-left: 15;
-  margin-right: 15;
-  width: 200;
-  padding-top: 12;
-  padding-bottom: 12;
-  padding-right: 15;
-  padding-left: 15;
-`
-const ButtonText = styled.Text`
-  color: #4d4d52;
-  font-size: 22; 
-  text-align: center;
+}
+const IconButton = styled.TouchableOpacity`
+  width: 60;
+  border: 1px;
+  border-color: #d8c3a5;
+  border-radius: 5;
+  align-items: center;
 `
 
 const styles = StyleSheet.create({
@@ -118,7 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#8e8d8a',
   },
-
   formPicker: {
     margin: 10,
     padding: 10,
@@ -126,7 +148,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1
   },
-
   upper: {
     flexDirection: 'row',
     justifyContent: 'space-between'
@@ -143,14 +164,14 @@ const styles = StyleSheet.create({
     color: '#413c69',
     fontSize: 18,
   },
-/*   icon: {
+icon: {
     fontSize: 50,
   },
-  iconsContainer: {
+  /* iconsContainer: {
     marginTop: 20,
     marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
-  } */
+  }  */
 
 })

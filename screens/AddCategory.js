@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import styled from "styled-components"
+import { Ionicons } from '@expo/vector-icons'
 
 export const AddCategory = (props) => {
   const [category, setCategory] = useState("")
@@ -35,8 +36,9 @@ export const AddCategory = (props) => {
             setDescription(text)
           }}
         />
+      </View>
 
-        <Button onPress={() => saveData()}>
+       {/*  <Button onPress={() => saveData()}>
           <ButtonText> Add category </ButtonText>
         </Button>
 
@@ -47,14 +49,39 @@ export const AddCategory = (props) => {
         <Button onPress={() => props.navigation.replace("Home")}>
           <ButtonText> Back </ButtonText>
         </Button>
-      </View>
+      </View> */}
 
+      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
+        <IconButton>
+          <Ionicons onPress={() => saveData()}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-save"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Categories")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="md-pricetags"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Home")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-home"
+          />
+        </IconButton>
+
+      </View>
     </View>
   )
 } 
 
-
-const Button = styled.TouchableOpacity`
+/* const Button = styled.TouchableOpacity`
   background-color: transparent;
   border: solid #fff;
   border-radius: 4;
@@ -70,10 +97,19 @@ const ButtonText = styled.Text`
     color: #c70d3a;
     font-size: 22; 
     text-align: center;
+` */
+
+const IconButton = styled.TouchableOpacity`
+  width: 60;
+  border: 1px;
+  border-color: #d8c3a5;
+  border-radius: 5;
+  align-items: center;
 `
+
 const styles = StyleSheet.create({
   container: {
-    /* backgroundColor: "pink", */
+    backgroundColor: '#eae7dc',
     flex: 1,
     justifyContent: "center",
   },
@@ -97,9 +133,8 @@ const styles = StyleSheet.create({
     borderBottomColor: 'white',
     borderWidth: 1,
     fontSize: 24,
-    color: 'white',
+    color: '#8e8d8a',
   },
-
   formPicker: {
     margin: 10,
     padding: 10,
@@ -107,13 +142,12 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1
   },
-
   upper: {
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   lower: {
-    color: '#f4b0c7',
+    color: '#8e8d8a',
   },
   title: {
     color: '#413c69',
@@ -124,14 +158,14 @@ const styles = StyleSheet.create({
     color: '#413c69',
     fontSize: 18,
   },
-  icon: {
+icon: {
     fontSize: 50,
   },
-  iconsContainer: {
+  /* iconsContainer: {
     marginTop: 20,
     marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
-  }
+  }  */
 
 })

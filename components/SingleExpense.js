@@ -18,6 +18,7 @@ export const SingleExpense = (props) => {
       </Text>
     </View>
     
+    
   )
 }
 
