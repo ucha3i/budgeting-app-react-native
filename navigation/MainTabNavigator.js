@@ -3,9 +3,8 @@ import React from 'react';
 import { Image, View, StyleSheet, Text } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 
-// import { colors, fonts } from '../../styles';
-
 import HomeView from 'screens/HomeView';
+
 /* import CalendarScreen from '../calendar/CalendarViewContainer';
 import GridsScreen from '../grids/GridsViewContainer';
 import PagesScreen from '../pages/PagesViewContainer';
@@ -16,8 +15,6 @@ const iconCalendar = require('assets/calendar.png');
 const iconGrids = require('assets/grids.png');
 const iconPages = require('assets/pages.png');
 const iconComponents = require('assets/components.png');
-
-// const hederBackground = require('../../../assets/images/topBarBg.png');
 
 const styles = StyleSheet.create({
   tabBarItemContainer: {

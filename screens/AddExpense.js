@@ -26,8 +26,8 @@ export const AddExpense = (props) => {
 
   return (
     
-    
     <View style={styles.container}>
+      
       <View style={styles.form}>
         <TextInput
           autoCorrect={false}
@@ -54,45 +54,45 @@ export const AddExpense = (props) => {
             setCategory(text)
           }}
         />
-
-        <Button onPress={() => saveData()}>
-          <ButtonText> Save expense! </ButtonText>
-        </Button>
-
-        <Button onPress={() => props.navigation.replace("Expenses")}>
-          <ButtonText> All expenses </ButtonText>
-        </Button>
-
-        <Button onPress={() => props.navigation.replace("Home")}>
-          <ButtonText> Back </ButtonText>
-        </Button>
-
       </View>
+
+      <Button onPress={() => saveData()}>
+        <ButtonText> Save expense! </ButtonText>
+      </Button>
+
+      <Button onPress={() => props.navigation.replace("Expenses")}>
+        <ButtonText> All expenses </ButtonText>
+      </Button>
+
+      <Button onPress={() => props.navigation.replace("Home")}>
+        <ButtonText> Back </ButtonText>
+      </Button>
 
     </View>
   )
 }
 
 const Button = styled.TouchableOpacity`
-  background-color: transparent;
-  border: solid #fff;
-  border-radius: 4;
+  background-color: #e98074;
+  border-radius: 50;
   margin-top: 30;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: 10;
-  padding-bottom: 10;
-  padding-right: 8;
-  padding-left: 8;
+  margin-left: 15;
+  margin-right: 15;
+  width: 200;
+  padding-top: 12;
+  padding-bottom: 12;
+  padding-right: 15;
+  padding-left: 15;
 `
 const ButtonText = styled.Text`
-    color: #c70d3a;
-    font-size: 22; 
-    text-align: center;
+  color: #4d4d52;
+  font-size: 22; 
+  text-align: center;
 `
+
 const styles = StyleSheet.create({
   container: {
-    /* backgroundColor: "pink", */
+    backgroundColor: '#eae7dc', 
     flex: 1,
     justifyContent: "center",
   },
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'white',
     borderWidth: 1,
     fontSize: 24,
-    color: 'white',
+    color: '#8e8d8a',
   },
 
   formPicker: {
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   lower: {
-    color: '#f4b0c7',
+    color: '#8e8d8a',
   },
   title: {
     color: '#413c69',
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     color: '#413c69',
     fontSize: 18,
   },
-  icon: {
+/*   icon: {
     fontSize: 50,
   },
   iconsContainer: {
@@ -151,6 +151,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
-  }
+  } */
 
 })
