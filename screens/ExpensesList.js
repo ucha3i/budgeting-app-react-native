@@ -17,10 +17,10 @@ const Expenses = (props) => {
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => props.navigation.replace("Expense")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-add"
+            name="ios-add-circle"
           />
         </IconButton>
 
@@ -33,7 +33,7 @@ const Expenses = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Category")}
+          <Ionicons onPress={() => props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"

@@ -30,14 +30,6 @@ const Categories = (props) => {
             name="ios-home"
           />
         </IconButton>
-
-        <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Category")}
-            color={"#e85a47"}
-            style={styles.icon}
-            name="md-pricetags"
-          />
-        </IconButton>
       </View>
 
 

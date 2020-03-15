@@ -30,7 +30,7 @@ export const HomeView = (props) => {
           <Ionicons onPress={() => props.navigation.replace("Expense")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-add-circle-outline"
+            name="ios-add-circle"
           />
         </IconButton>
         <IconButton>

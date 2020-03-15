@@ -93,7 +93,7 @@ export const AddExpense = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Category")}
+          <Ionicons onPress={() => props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
