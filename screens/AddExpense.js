@@ -8,10 +8,16 @@ export const AddExpense = (props) => {
   const [expense, setExpense] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
+  const [account, setAccount] = useState("")
 
   const saveData = () => {
     if (expense == "") {
       Alert.alert("Fill the expense")
+      return
+    }
+
+    if (account == "") {
+      Alert.alert("Fill the account")
       return
     }
     
@@ -40,18 +46,25 @@ export const AddExpense = (props) => {
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
-          placeholder={'Description'}
+          placeholder={'Account'}
           onChangeText={text => {
-            setDescription(text)
+            setAccount(text)
           }}
         />
-
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
           placeholder={'Category'}
           onChangeText={text => {
             setCategory(text)
+          }}
+        />
+        <TextInput
+          autoCorrect={false}
+          style={styles.formInput}
+          placeholder={'Description'}
+          onChangeText={text => {
+            setDescription(text)
           }}
         />
       </View>
