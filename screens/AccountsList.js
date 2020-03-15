@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
-import { SingleExpense } from "../components/SingleExpense"
+import { SingleAccount } from "../components/SingleAccount"
 import { View, StyleSheet, Text, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import expenses from "../reducers/expenses"
+import accounts from "../reducers/accounts"
 import { Ionicons } from '@expo/vector-icons'
 
-const Expenses = (props) => {
+const Accounts = (props) => {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
-      {props.expenses.map(expense => {
-        return (<SingleExpense key={expense["id"]} expense={expense.category} amount={expense.amount}/>);
+      {props.accounts.map(account => {
+        
+        return (<SingleAccount key={account["id"]} name={account.name} saldo={account.saldo} />);
       }
       )}
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => props.navigation.replace("Account")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-add"
+            name="ios-add-circle"
           />
         </IconButton>
 
@@ -33,10 +34,10 @@ const Expenses = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Category")}
+          <Ionicons onPress={() => props.navigation.replace("Expenses")}
             color={"#e85a47"}
             style={styles.icon}
-            name="md-pricetags"
+            name="ios-list"
           />
         </IconButton>
       </View>
@@ -46,16 +47,16 @@ const Expenses = (props) => {
 
 const mapStateToProps = state => {
   return {
-    expenses: state.expenses
+    accounts: state.accounts
   };
 }
 
-Expenses.propTypes = {
-  expenses: PropTypes.arrayOf(
+Accounts.propTypes = {
+  accounts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      amount: PropTypes.number.isRequired,
-      category: PropTypes.string.isRequired
+      // name: PropTypes.text.isRequired, 
+      saldo: PropTypes.number.isRequired
     }).isRequired
   ).isRequired
 }
@@ -74,6 +75,6 @@ const styles = StyleSheet.create({
   }
 })
 
-export const ExpensesList = connect(
+export const AccountsList = connect(
   mapStateToProps
-)(Expenses)
+)(Accounts)

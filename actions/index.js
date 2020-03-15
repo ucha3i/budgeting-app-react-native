@@ -11,3 +11,9 @@ export const addCategory = (name, description) => ({
   name,
   description
 })
+
+export const addAccount = (name, saldo) => ({
+  type: 'ADD_ACCOUNT',
+  name,
+  saldo
+})

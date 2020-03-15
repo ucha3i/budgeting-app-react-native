@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Text, Alert } from 'react-native'
 import styled from "styled-components"
 
-export const Category = (props) => {
+export const SingleAccount = (props) => {
 
   return (
 
@@ -14,7 +14,7 @@ export const Category = (props) => {
           fontSize: 17,
         }}
       >
-        {props.name}
+        {props.name}: {props.saldo} kr
       </Text>
     </View>
 

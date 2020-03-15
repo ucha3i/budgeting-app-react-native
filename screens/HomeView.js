@@ -25,7 +25,7 @@ export const HomeView = (props) => {
       </Button>
       </View> */}
 
-      <View style={{ width: 200, maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
+      <View style={{ width: 260, maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
         <IconButton>
           <Ionicons onPress={() => props.navigation.replace("Expense")}
             color={"#e85a47"}
@@ -38,6 +38,14 @@ export const HomeView = (props) => {
             color={"#e85a47"}
             style={styles.icon}
             name="ios-list"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Accounts")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-cash"
           />
         </IconButton>
       </View>

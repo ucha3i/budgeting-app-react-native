@@ -5,13 +5,17 @@ import { AddExpense } from "../screens/AddExpense"
 import { AddCategory } from "../screens/AddCategory"
 import { ExpensesList } from "../screens/ExpensesList"
 import { CategoriesList } from "../screens/CategoriesList"
+import { AccountsList } from "../screens/AccountsList"
+import { AddAccount } from "../screens/AddAccount"
 
 const PageNavigator = createStackNavigator({
   Home: HomeView,
   Expense: AddExpense,
-  Category: AddCategory,
   Expenses: ExpensesList,
+  Category: AddCategory,
   Categories: CategoriesList,
+  Accounts: AccountsList,
+  Account: AddAccount,
 },
   {
     defaultNavigationOptions: {
