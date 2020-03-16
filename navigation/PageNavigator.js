@@ -7,6 +7,8 @@ import { ExpensesList } from "../screens/ExpensesList"
 import { CategoriesList } from "../screens/CategoriesList"
 import { AccountsList } from "../screens/AccountsList"
 import { AddAccount } from "../screens/AddAccount"
+import { IncomesList } from "../screens/IncomesList"
+import { AddIncome } from "../screens/AddIncome"
 
 const PageNavigator = createStackNavigator({
   Home: HomeView,
@@ -16,6 +18,8 @@ const PageNavigator = createStackNavigator({
   Categories: CategoriesList,
   Accounts: AccountsList,
   Account: AddAccount,
+  Income: AddIncome,
+  Incomes: IncomesList
 },
   {
     defaultNavigationOptions: {

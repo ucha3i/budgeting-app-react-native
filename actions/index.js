@@ -17,3 +17,12 @@ export const addAccount = (name, saldo) => ({
   name,
   saldo
 })
+
+export const addIncome = (amount, account, date, category, description) => ({
+  type: 'ADD_INCOME',
+  amount,
+  account,
+  date,
+  category,
+  description
+})

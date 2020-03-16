@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components/native"
 import { Ionicons } from '@expo/vector-icons'
 import { StyleSheet, TextInput, Alert } from 'react-native'
-import { createMaterialBottomTabNavigator } from 'react-navigation';
+// import { createMaterialBottomTabNavigator } from 'react-navigation';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import MainTabNavigator from 'navigation/MainTabNavigator';
 
@@ -24,8 +24,8 @@ export const HomeView = (props) => {
         <ButtonText> Cat </ButtonText>
       </Button>
       </View> */}
-
-      <View style={{ width: 260, maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
+      
+      <View style={{ maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
         <IconButton>
           <Ionicons onPress={() => props.navigation.replace("Expense")}
             color={"#e85a47"}
@@ -46,6 +46,14 @@ export const HomeView = (props) => {
             color={"#e85a47"}
             style={styles.icon}
             name="ios-cash"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Incomes")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-list-box"
           />
         </IconButton>
       </View>
@@ -114,7 +122,7 @@ const IconButton = styled.TouchableOpacity`
 `
 
 const styles = StyleSheet.create({
-icon: {
+  icon: {
     fontSize: 50,
   },
   /* iconsContainer: {
@@ -123,5 +131,6 @@ icon: {
     flexDirection: 'row',
     justifyContent: 'space-around',
   } */})
+
 
 export default HomeView 
