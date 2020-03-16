@@ -1,10 +1,14 @@
 import React from "react"
 import PageNavigator from "./navigation/PageNavigator"
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
+import thunk from 'redux-thunk'
 
-const store = createStore(rootReducer)
+const middlewares = [thunk]
+
+const store = createStore(rootReducer, {}, applyMiddleware(...middlewares))
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -14,7 +18,4 @@ const App = () => {
 }
 
 export default App
-
-
-// import { render } from 'react-dom'
 

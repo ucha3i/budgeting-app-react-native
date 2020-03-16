@@ -1,6 +1,6 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
-import { HomeView } from '../screens/HomeView'
+import HomeView from '../screens/HomeView'
 import { AddExpense } from "../screens/AddExpense"
 import { AddCategory } from "../screens/AddCategory"
 import { ExpensesList } from "../screens/ExpensesList"

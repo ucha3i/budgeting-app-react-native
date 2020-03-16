@@ -29,6 +29,10 @@ const accounts = (state = initialState, action) => {
           saldo: action.saldo
         }
       ]
+
+    case 'FETCH_ACCOUNTS':
+      return action.accounts
+
     default:
       return state
   }

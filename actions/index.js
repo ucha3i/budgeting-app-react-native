@@ -1,3 +1,10 @@
+export const fetchAccounts = (accounts) => ({
+  type: "FETCH_ACCOUNTS",
+  accounts
+})
+
+
+
 export const addExpense = (amount, date, category, description) => ({
   type: 'ADD_EXPENSE',
   amount,
