@@ -1,7 +1,7 @@
-import React, { Component, useEffect } from "react"
+import React, { Component } from "react"
 import styled from "styled-components/native"
 import { Category } from "../components/Category"
-import { View, StyleSheet, Text, Alert } from 'react-native'
+import { View, StyleSheet} from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Ionicons } from '@expo/vector-icons'
@@ -46,19 +46,11 @@ class Categories extends Component {
 
     </View>
   )
-}
-}
-
-/* const mapStateToProps = state => {
-  return {
-    categories: state.categories
-  };
-} */
+}}
 
 Categories.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
-      // id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
@@ -87,7 +79,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories) 
-
-/* export const CategoriesList = connect(
-  mapStateToProps
-)(Categories) */

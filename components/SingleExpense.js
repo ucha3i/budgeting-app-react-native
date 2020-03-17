@@ -1,11 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Text, Alert } from 'react-native'
-import styled from "styled-components"
+import { View, StyleSheet, Text } from 'react-native'
 
 export const SingleExpense = (props) => {
 
   return (
-    
     <View style={styles.item}>
       <Text
         style={{
@@ -17,8 +15,6 @@ export const SingleExpense = (props) => {
         {props.category.name}: {props.amount} kr from {props.account.name}
       </Text>
     </View>
-    
-    
   )
 }
 
@@ -36,4 +32,4 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
   },
-});
+})

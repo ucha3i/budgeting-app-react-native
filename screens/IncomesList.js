@@ -1,13 +1,12 @@
-import React, { Component, useEffect } from "react"
+import React, { Component } from "react"
 import styled from "styled-components/native"
 import { Income } from "../components/Income"
-import { View, StyleSheet, Text, Alert } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Ionicons } from '@expo/vector-icons'
 import { bindActionCreators } from 'redux'
 import api from '../api'
-
 
 class Incomes extends Component {
   constructor(props) {
@@ -54,21 +53,13 @@ class Incomes extends Component {
       </View>
     </View>
   )
-}
-}
-
-/* const mapStateToProps = state => {
-  return {
-    incomes: state.incomes
-  };
-} */
+}}
 
 Incomes.propTypes = {
   incomes: PropTypes.arrayOf(
     PropTypes.shape({
-      // id: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired,
-      account: PropTypes.string.isRequired,
+      account: PropTypes.object.isRequired,
       description: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
@@ -87,10 +78,6 @@ const styles = StyleSheet.create({
     fontSize: 50,
   }
 })
-
-/* export const IncomesList = connect(
-  mapStateToProps
-)(Incomes) */
 
 const mapStateToProps = state => ({
   incomes: state.incomes

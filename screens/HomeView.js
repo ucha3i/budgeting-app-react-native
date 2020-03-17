@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components/native"
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet, TextInput, Alert } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import api from '../api'
 import { bindActionCreators } from 'redux'
@@ -16,13 +16,21 @@ class HomeView extends Component {
     fetchAccounts()
   }
 
+  welcomeMessage() {
+    if (this.props.accounts[0] !== undefined ) {
+      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your daily account </TextBig>)
+    }
+    else {
+      return (<TextBig> Add account and keep track of your expenses! </TextBig>)
+    }
+  }
+
   render() {
     return (
 
       <View>
-
-        {/* <TextBig> Your daily budget is {this.props.accounts[0].saldo} kr </TextBig> */}
-
+        { this.welcomeMessage() }
+        
         <View style={{ maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Expense")}
@@ -38,7 +46,6 @@ class HomeView extends Component {
               name="ios-list"
             />
           </IconButton>
-
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
               color={"#e85a47"}
@@ -46,7 +53,6 @@ class HomeView extends Component {
               name="ios-cash"
             />
           </IconButton>
-
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
               color={"#e85a47"}
@@ -55,14 +61,12 @@ class HomeView extends Component {
             />
           </IconButton>
         </View>
-
       </View>
     )
-  }
-}
+  }}
 
 HomeView.navigationOptions = {
-  headerTitle: "Keep track of your expenses",
+  headerTitle: "...",
   headerBackTitle: "Back",
   headerStyle: {
     backgroundColor: "black"

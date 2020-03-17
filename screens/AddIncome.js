@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TextInput, Alert } from 'react-native'
+import { View, StyleSheet, TextInput, Alert, Picker } from 'react-native'
 import styled from "styled-components"
 import { connect } from 'react-redux'
 import { Ionicons } from '@expo/vector-icons'
@@ -39,10 +39,12 @@ export const AddIncome = (props) => {
           autoCorrect={false}
           style={styles.formInput}
           placeholder={'Amount'}
+          keyboardType='numeric'
           onChangeText={number => {
             setExpense(number)
           }}
-        />
+        /> 
+
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
@@ -51,6 +53,7 @@ export const AddIncome = (props) => {
             setAccount(text)
           }}
         />
+
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
@@ -58,20 +61,8 @@ export const AddIncome = (props) => {
           onChangeText={text => {
             setDescription(text)
           }}
-        />
+        /> 
       </View>
-
-      {/* <Button onPress={() => saveData()}>
-        <ButtonText> Save expense! </ButtonText>
-      </Button>
-
-      <Button onPress={() => props.navigation.replace("Expenses")}>
-        <ButtonText> All expenses </ButtonText>
-      </Button>
-
-      <Button onPress={() => props.navigation.replace("Home")}>
-        <ButtonText> Back </ButtonText>
-      </Button> */}
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
@@ -96,14 +87,6 @@ export const AddIncome = (props) => {
             name="ios-home"
           />
         </IconButton>
-
-        {/* <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Categories")}
-            color={"#e85a47"}
-            style={styles.icon}
-            name="md-pricetags"
-          />
-        </IconButton> */}
       </View>
 
     </View>
@@ -171,12 +154,5 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 50,
-  },
-  /* iconsContainer: {
-    marginTop: 20,
-    marginBottom: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  }  */
-
+  }
 })

@@ -1,29 +1,3 @@
-/* let nextId = 4
-
-const initialState = [
-  {
-    id:1,
-    amount: 45,
-    date: "2020-03-04",
-    category: "grocery",
-    description: "ziemniaki"
-  },
-  {
-    id:2,
-    amount: 35,
-    date: "2020-03-02",
-    category: "car",
-    description: "mietek"
-  },
-  {
-    id:3,
-    amount: 15,
-    date: "2020-03-05",
-    category: "car",
-    description: "benzyna"
-  }
-] */
-
 const expenses = (state = [], action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':

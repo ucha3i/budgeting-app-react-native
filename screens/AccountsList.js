@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components/native"
 import { SingleAccount } from "../components/SingleAccount"
-import { View, StyleSheet, Text, Alert } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import accounts from "../reducers/accounts"
 import { Ionicons } from '@expo/vector-icons'
 
 const Accounts = (props) => {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
       {props.accounts.map(account => {
-        
-        return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />);
-      }
+        return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />)}
       )}
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
@@ -54,8 +51,6 @@ const mapStateToProps = state => {
 Accounts.propTypes = {
   accounts: PropTypes.arrayOf(
     PropTypes.shape({
-      // id: PropTypes.number.isRequired,
-      // name: PropTypes.text.isRequired, 
       saldo: PropTypes.number.isRequired
     }).isRequired
   ).isRequired

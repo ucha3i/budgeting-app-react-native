@@ -1,5 +1,5 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeView from '../screens/HomeView'
 import { AddExpense } from "../screens/AddExpense"
 import { AddCategory } from "../screens/AddCategory"
@@ -20,13 +20,6 @@ const PageNavigator = createStackNavigator({
   Account: AddAccount,
   Income: AddIncome,
   Incomes: IncomesList
-},
-  {
-    defaultNavigationOptions: {
-      ...TransitionPresets.SlideFromRightIOS,
-      cardOverlayEnabled: true,
-      gestureEnabled: true,
-    }
-  })
+})
 
 export default createAppContainer(PageNavigator) 

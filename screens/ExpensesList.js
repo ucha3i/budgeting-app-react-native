@@ -1,7 +1,7 @@
-import React, { Component, useEffect } from "react"
+import React, { Component } from "react"
 import styled from "styled-components/native"
 import { SingleExpense } from "../components/SingleExpense"
-import { View, StyleSheet, Text, Alert } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Ionicons } from '@expo/vector-icons'
@@ -19,13 +19,10 @@ class Expenses extends Component {
   }
 
   render() {
-
-
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
       {this.props.expenses.map(expense => {
-        return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>);
-      }
+        return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>)}
       )}
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
@@ -55,19 +52,11 @@ class Expenses extends Component {
       </View>
     </View>
   )
-}
-}
-
-/* const mapStateToProps = state => {
-  return {
-    expenses: state.expenses
-  };
-} */
+}}
 
 Expenses.propTypes = {
   expenses: PropTypes.arrayOf(
     PropTypes.shape({
-      // id: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired,
       category: PropTypes.object.isRequired
     }).isRequired
@@ -97,7 +86,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expenses) 
-
-/* export const ExpensesList = connect(
-  mapStateToProps
-)(Expenses) */

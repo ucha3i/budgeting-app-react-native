@@ -37,25 +37,13 @@ export const AddAccount = (props) => {
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
+          keyboardType='numeric'
           placeholder={'Saldo'}
           onChangeText={Number => {
             setSaldo(Number)
           }}
         />
       </View>
-
-      {/*  <Button onPress={() => saveData()}>
-          <ButtonText> Add category </ButtonText>
-        </Button>
-
-        <Button onPress={() => props.navigation.replace("Categories")}>
-          <ButtonText> All categories </ButtonText>
-        </Button>
-      
-        <Button onPress={() => props.navigation.replace("Home")}>
-          <ButtonText> Back </ButtonText>
-        </Button>
-      </View> */}
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
@@ -81,29 +69,10 @@ export const AddAccount = (props) => {
             name="ios-home"
           />
         </IconButton>
-
       </View>
     </View>
   )
 }
-
-/* const Button = styled.TouchableOpacity`
-  background-color: transparent;
-  border: solid #fff;
-  border-radius: 4;
-  margin-top: 30;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: 10;
-  padding-bottom: 10;
-  padding-right: 8;
-  padding-left: 8;
-`
-const ButtonText = styled.Text`
-    color: #c70d3a;
-    font-size: 22; 
-    text-align: center;
-` */
 
 const IconButton = styled.TouchableOpacity`
   width: 60;
@@ -166,12 +135,5 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 50,
-  },
-  /* iconsContainer: {
-    marginTop: 20,
-    marginBottom: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  }  */
-
+  }
 })
