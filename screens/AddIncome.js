@@ -21,8 +21,8 @@ export const AddIncome = (props) => {
       return
     }
 
-    if (category == "") {
-      Alert.alert("Fill the category")
+    if (description == "") {
+      Alert.alert("Fill the description")
       return
     }
 
@@ -49,14 +49,6 @@ export const AddIncome = (props) => {
           placeholder={'Account'}
           onChangeText={text => {
             setAccount(text)
-          }}
-        />
-        <TextInput
-          autoCorrect={false}
-          style={styles.formInput}
-          placeholder={'Category'}
-          onChangeText={text => {
-            setCategory(text)
           }}
         />
         <TextInput

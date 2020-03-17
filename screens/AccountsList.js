@@ -12,7 +12,7 @@ const Accounts = (props) => {
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
       {props.accounts.map(account => {
         
-        return (<SingleAccount key={account["id"]} name={account.name} saldo={account.saldo} />);
+        return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />);
       }
       )}
 
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
 Accounts.propTypes = {
   accounts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      // id: PropTypes.number.isRequired,
       // name: PropTypes.text.isRequired, 
       saldo: PropTypes.number.isRequired
     }).isRequired

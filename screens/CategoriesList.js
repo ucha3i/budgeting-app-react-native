@@ -1,22 +1,33 @@
-import React, { useState, useEffect } from "react"
+import React, { Component, useEffect } from "react"
 import styled from "styled-components/native"
 import { Category } from "../components/Category"
 import { View, StyleSheet, Text, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import expenses from "../reducers/expenses"
 import { Ionicons } from '@expo/vector-icons'
+import { bindActionCreators } from 'redux'
+import api from '../api'
 
-const Categories = (props) => {
+class Categories extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentWillMount() {
+    const { fetchCategories } = this.props
+    fetchCategories()
+  }
+
+  render() {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
-      {props.categories.map(category => {
-        return (<Category key={category["id"]} name={category.name} />);
+      {this.props.categories.map(category => {
+        return (<Category key={category["_id"]} name={category.name} />);
       })}
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Category")}
+          <Ionicons onPress={() => this.props.navigation.replace("Category")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-add-circle"
@@ -24,7 +35,7 @@ const Categories = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -36,17 +47,18 @@ const Categories = (props) => {
     </View>
   )
 }
+}
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
   return {
     categories: state.categories
   };
-}
+} */
 
 Categories.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      // id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
@@ -66,6 +78,16 @@ const styles = StyleSheet.create({
   }
 })
 
-export const CategoriesList = connect(
+const mapStateToProps = state => ({
+  categories: state.categories
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchCategories: api.fetchCategoriesList
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories) 
+
+/* export const CategoriesList = connect(
   mapStateToProps
-)(Categories)
+)(Categories) */

@@ -21,18 +21,18 @@ class HomeView extends Component {
 
       <View>
 
-        <TextBig> Your daily budget is {this.props.accounts[0].saldo} kr </TextBig>
+        {/* <TextBig> Your daily budget is {this.props.accounts[0].saldo} kr </TextBig> */}
 
         <View style={{ maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
           <IconButton>
-            <Ionicons onPress={() => props.navigation.replace("Expense")}
+            <Ionicons onPress={() => this.props.navigation.replace("Expense")}
               color={"#e85a47"}
               style={styles.icon}
               name="ios-add-circle"
             />
           </IconButton>
           <IconButton>
-            <Ionicons onPress={() => props.navigation.replace("Expenses")}
+            <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
               color={"#e85a47"}
               style={styles.icon}
               name="ios-list"
@@ -40,7 +40,7 @@ class HomeView extends Component {
           </IconButton>
 
           <IconButton>
-            <Ionicons onPress={() => props.navigation.replace("Accounts")}
+            <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
               color={"#e85a47"}
               style={styles.icon}
               name="ios-cash"
@@ -48,7 +48,7 @@ class HomeView extends Component {
           </IconButton>
 
           <IconButton>
-            <Ionicons onPress={() => props.navigation.replace("Incomes")}
+            <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
               color={"#e85a47"}
               style={styles.icon}
               name="ios-list-box"

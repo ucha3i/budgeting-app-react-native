@@ -14,7 +14,7 @@ export const SingleExpense = (props) => {
           fontSize: 17,
         }}
       >
-        {props.expense}: {props.amount} kr
+        {props.category.name}: {props.amount} kr from {props.account.name}
       </Text>
     </View>
     

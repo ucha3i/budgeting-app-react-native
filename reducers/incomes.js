@@ -1,4 +1,4 @@
-let nextId = 3
+/* let nextId = 3
 
 const initialState = [
   {
@@ -6,20 +6,18 @@ const initialState = [
     amount: 20000,
     account: "card",
     date: "2020-03-04",
-    category: "wypłata",
-    description: "ziemniaki"
+    description: "wypłata"
   },
   {
     id: 2,
     amount: 500,
     account: "wallet",
     date: "2020-04-02",
-    category: "znalezione",
-    description: "..."
+    description: "znalezione"
   },
-]
+] */
 
-const incomes = (state = initialState, action) => {
+const incomes = (state = [], action) => {
   switch (action.type) {
     case 'ADD_INCOMES':
       return [
@@ -29,10 +27,13 @@ const incomes = (state = initialState, action) => {
           amount: action.amount,
           account: action.account,
           date: action.date,
-          category: action.category,
           description: action.description
         }
       ]
+
+    case 'FETCH_INCOMES':
+      return action.incomes
+
     default:
       return state
   }

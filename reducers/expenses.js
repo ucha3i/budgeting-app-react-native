@@ -1,4 +1,4 @@
-let nextId = 4
+/* let nextId = 4
 
 const initialState = [
   {
@@ -22,9 +22,9 @@ const initialState = [
     category: "car",
     description: "benzyna"
   }
-]
+] */
 
-const expenses = (state = initialState, action) => {
+const expenses = (state = [], action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return [
@@ -37,6 +37,10 @@ const expenses = (state = initialState, action) => {
           description: action.description
         }
       ]
+
+    case 'FETCH_EXPENSES':
+      return action.expenses
+
     default:
       return state
   }

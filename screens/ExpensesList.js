@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from "react"
+import React, { Component, useEffect } from "react"
 import styled from "styled-components/native"
 import { SingleExpense } from "../components/SingleExpense"
 import { View, StyleSheet, Text, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import expenses from "../reducers/expenses"
 import { Ionicons } from '@expo/vector-icons'
+import { bindActionCreators } from 'redux'
+import api from '../api'
 
-const Expenses = (props) => {
+class Expenses extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentWillMount() {
+    const { fetchExpenses } = this.props
+    fetchExpenses()
+  }
+
+  render() {
+
+
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
-      {props.expenses.map(expense => {
-        return (<SingleExpense key={expense["id"]} expense={expense.category} amount={expense.amount}/>);
+      {this.props.expenses.map(expense => {
+        return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>);
       }
       )}
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Expense")}
+          <Ionicons onPress={() => this.props.navigation.replace("Expense")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-add-circle"
@@ -25,7 +38,7 @@ const Expenses = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -33,7 +46,7 @@ const Expenses = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Categories")}
+          <Ionicons onPress={() => this.props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
@@ -43,19 +56,20 @@ const Expenses = (props) => {
     </View>
   )
 }
+}
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
   return {
     expenses: state.expenses
   };
-}
+} */
 
 Expenses.propTypes = {
   expenses: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      // id: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired,
-      category: PropTypes.string.isRequired
+      category: PropTypes.object.isRequired
     }).isRequired
   ).isRequired
 }
@@ -74,6 +88,16 @@ const styles = StyleSheet.create({
   }
 })
 
-export const ExpensesList = connect(
+const mapStateToProps = state => ({
+  expenses: state.expenses
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchExpenses: api.fetchExpensesList
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Expenses) 
+
+/* export const ExpensesList = connect(
   mapStateToProps
-)(Expenses)
+)(Expenses) */

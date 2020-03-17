@@ -14,7 +14,7 @@ export const Income = (props) => {
           fontSize: 17,
         }}
       >
-        {props.income}: + {props.amount} kr to {props.account}
+        {props.income}: + {props.amount} kr to {props.account.name}
       </Text>
     </View>
 

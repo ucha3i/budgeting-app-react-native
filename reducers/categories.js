@@ -1,4 +1,4 @@
-let nextId = 3
+/* let nextId = 3
 
 const initialState = [
   {
@@ -11,9 +11,9 @@ const initialState = [
     name: "car",
     description: "car maintenance"
   },
-]
+] */
 
-const categories = (state = initialState, action) => {
+const categories = (state = [], action) => {
   switch (action.type) {
     case 'ADD_CATEGORY':
       return [
@@ -24,6 +24,10 @@ const categories = (state = initialState, action) => {
           description: action.description
         }
       ]
+
+    case 'FETCH_CATEGORIES':
+      return action.categories
+
     default:
       return state
   }
