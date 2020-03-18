@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import styled from "styled-components"
@@ -19,17 +19,17 @@ class AddExpense extends Component {
 
   saveData() {
     if (this.state.amount == 0) {
-      Alert.alert("Fill the expense")
+      Alert.alert("Fill the amount!")
       return
     }
 
     if (this.state.account == null) {
-      Alert.alert("Fill the account")
+      Alert.alert("Fill the account!")
       return
     }
 
     if (this.state.category == null) {
-      Alert.alert("Fill the category")
+      Alert.alert("Fill the category!")
       return
     }
 
@@ -121,9 +121,7 @@ class AddExpense extends Component {
 
     </View>
   )
-
-}
-}
+}}
 
 
 const IconButton = styled.TouchableOpacity`

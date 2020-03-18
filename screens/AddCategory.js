@@ -1,31 +1,43 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import styled from "styled-components"
 import { Ionicons } from '@expo/vector-icons'
+import api from '../api'
+import { connect } from 'react-redux'
 
-export const AddCategory = (props) => {
-  const [category, setCategory] = useState("")
-  const [description, setDescription] = useState("")
+class AddCategory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      description: ""
+    }
+  }
 
-  const saveData = () => {
-    if (category == "") {
+  saveData() {
+    if (this.state.name == "") {
       Alert.alert("Fill the category")
       return
     }
 
-    categories.push(new category(lastId + 1, { 'category': category, }, description))
-    Alert.alert('Category saved!')
-  }
+    api.saveCategory({
+      name: this.state.name,
+      description: this.state.description
+    })
 
+    Alert.alert('New category added!')
+  } 
+
+  render() {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
-          placeholder={'Category'}
-          onChangeText={text => {
-            setCategory(text)
+          placeholder={'Category name'}
+          onChangeText={name => {
+            this.setState({ name: name })
           }}
         />
         <TextInput
@@ -33,14 +45,14 @@ export const AddCategory = (props) => {
           style={styles.formInput}
           placeholder={'Description'}
           onChangeText={text => {
-            setDescription(text)
+            this.setState({ description: text })
           }}
         />
       </View>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => this.saveData()}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-save"
@@ -48,7 +60,7 @@ export const AddCategory = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Categories")}
+          <Ionicons onPress={() => this.props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
@@ -56,7 +68,7 @@ export const AddCategory = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -65,7 +77,7 @@ export const AddCategory = (props) => {
       </View>
     </View>
   )
-} 
+}}
 
 const IconButton = styled.TouchableOpacity`
   width: 60;
@@ -130,3 +142,9 @@ icon: {
     fontSize: 50,
   }
 })
+
+const mapStateToProps = state => ({
+  categories: state.categories
+})
+
+export default connect(mapStateToProps)(AddCategory)  

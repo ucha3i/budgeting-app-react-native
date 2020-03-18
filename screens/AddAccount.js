@@ -1,37 +1,49 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import styled from "styled-components"
 import { Ionicons } from '@expo/vector-icons'
 import accounts from '../reducers/accounts'
+import api from '../api'
+import { connect } from 'react-redux'
 
-export const AddAccount = (props) => {
-  const [name, setName] = useState("")
-  const [saldo, setSaldo] = useState("")
+class AddAccount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      saldo: 0
+    }
+  }
 
-  const saveData = () => {
-    if (name == "") {
+  saveData() {
+    if (this.state.name == "") {
       Alert.alert("Fill the name!")
       return
     }
 
-    if (saldo == "") {
+    if (this.state.saldo == 0) {
       Alert.alert("Fill saldo!")
       return
     }
 
-    accounts.push(new account(lastId + 1, { 'name': name, }, saldo))
-    Alert.alert('Saldo saved!')
+    api.saveAccount({
+      name: this.state.name,
+      saldo: this.state.saldo
+    })
+
+    Alert.alert('New account added!')
   }
 
+  render() {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
-          placeholder={'Account'}
-          onChangeText={text => {
-            setName(text)
+          placeholder={'Account name'}
+          onChangeText={name => {
+            this.setState({ name: name })
           }}
         />
         <TextInput
@@ -39,15 +51,15 @@ export const AddAccount = (props) => {
           style={styles.formInput}
           keyboardType='numeric'
           placeholder={'Saldo'}
-          onChangeText={Number => {
-            setSaldo(Number)
+          onChangeText={saldo => {
+            this.setState({ saldo: saldo })
           }}
         />
       </View>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => this.saveData()}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-save"
@@ -55,15 +67,15 @@ export const AddAccount = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Categories")}
+          <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
             color={"#e85a47"}
             style={styles.icon}
-            name="md-pricetags"
+            name="ios-cash"
           />
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -72,7 +84,7 @@ export const AddAccount = (props) => {
       </View>
     </View>
   )
-}
+}}
 
 const IconButton = styled.TouchableOpacity`
   width: 60;
@@ -137,3 +149,9 @@ const styles = StyleSheet.create({
     fontSize: 50,
   }
 })
+
+const mapStateToProps = state => ({
+  accounts: state.accounts
+})
+
+export default connect(mapStateToProps)(AddAccount)  

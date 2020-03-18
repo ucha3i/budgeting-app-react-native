@@ -1,34 +1,48 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { View, StyleSheet, TextInput, Alert, Picker } from 'react-native'
 import styled from "styled-components"
 import { connect } from 'react-redux'
 import { Ionicons } from '@expo/vector-icons'
+import { Dropdown } from 'react-native-material-dropdown';
+import api from '../api'
 
-export const AddIncome = (props) => {
-  const [income, setIncome] = useState("")
-  const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("")
-  const [account, setAccount] = useState("")
-
-  const saveData = () => {
-    if (income == "") {
-      Alert.alert("Fill the amount")
-      return
+class AddIncome extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      amount: 0,
+      account: null,
+      description: ""
     }
-
-    if (account == "") {
-      Alert.alert("Fill the account")
-      return
-    }
-
-    if (description == "") {
-      Alert.alert("Fill the description")
-      return
-    }
-
-    incomes.push(new income(lastId + 1, income, description, { 'category': category, }))
-    Alert.alert('Income saved!')
   }
+
+  saveData() {
+    if (this.state.amount == 0) {
+      Alert.alert("Fill the amount!")
+      return
+    }
+
+    if (this.state.account == null) {
+      Alert.alert("Fill the account!")
+      return
+    }
+
+    if (this.state.description == null) {
+      Alert.alert("Fill the description!")
+      return
+    }
+
+    api.saveIncome({
+      amount: this.state.amount,
+      account: this.state.account,
+      description: this.state.description
+    })
+
+    Alert.alert('Income added!')
+  }
+
+  render() {
+    const accountData = this.props.accounts.map(account => ({ value: account._id, label: account.name }))
 
   return (
 
@@ -41,16 +55,15 @@ export const AddIncome = (props) => {
           placeholder={'Amount'}
           keyboardType='numeric'
           onChangeText={number => {
-            setExpense(number)
+            this.setState({ amount: number })
           }}
         /> 
 
-        <TextInput
-          autoCorrect={false}
-          style={styles.formInput}
-          placeholder={'Account'}
-          onChangeText={text => {
-            setAccount(text)
+        <Dropdown
+          label='Account'
+          data={accountData}
+          onChangeText={account => {
+            this.setState({ account: account })
           }}
         />
 
@@ -59,21 +72,21 @@ export const AddIncome = (props) => {
           style={styles.formInput}
           placeholder={'Description'}
           onChangeText={text => {
-            setDescription(text)
+            this.setState({ description: text })
           }}
         /> 
       </View>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => this.saveData()}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-save"
           />
         </IconButton>
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Incomes")}
+          <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-list-box"
@@ -81,7 +94,7 @@ export const AddIncome = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -91,8 +104,8 @@ export const AddIncome = (props) => {
 
     </View>
   )
+}}
 
-}
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
@@ -156,3 +169,11 @@ const styles = StyleSheet.create({
     fontSize: 50,
   }
 })
+
+const mapStateToProps = state => ({
+  expenses: state.expenses,
+  accounts: state.accounts,
+  description: state.description
+})
+
+export default connect(mapStateToProps)(AddIncome)  

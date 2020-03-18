@@ -11,6 +11,22 @@ const fetchAccountsList = () => {
   }
 }
 
+const saveAccount = (account) => {
+  const newAccount = fetch('http://localhost:8080/accounts',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(account)
+    })
+    .then(res => res.json)
+    .then(res => {
+      return res
+    })
+  return newAccount
+}
+
 const fetchExpensesList = () => {
   return dispatch => {
     fetch('http://localhost:8080/expenses')
@@ -23,8 +39,6 @@ const fetchExpensesList = () => {
 }
 
 const saveExpense = (expense) => {
-  console.log("jestesmy w saveExpense")
-  console.log(JSON.stringify(expense))
   const newExpense = fetch('http://localhost:8080/expenses', 
     { method: 'POST', 
       headers: {
@@ -51,6 +65,22 @@ const fetchCategoriesList = () => {
   }
 }
 
+const saveCategory = (category) => {
+  const newCategory = fetch('http://localhost:8080/categories',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(category)
+    })
+    .then(res => res.json)
+    .then(res => {
+      return res
+    })
+  return newCategory
+}
+
 const fetchIncomesList = () => {
   return dispatch => {
     fetch('http://localhost:8080/incomes')
@@ -62,4 +92,20 @@ const fetchIncomesList = () => {
   }
 }
 
-export default { fetchAccountsList, fetchExpensesList, fetchCategoriesList, fetchIncomesList, saveExpense }
+const saveIncome = (income) => {
+  const newIncome = fetch('http://localhost:8080/incomes',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(income)
+    })
+    .then(res => res.json)
+    .then(res => {
+      return res
+    })
+  return newIncome
+}
+
+export default { fetchAccountsList, fetchExpensesList, fetchCategoriesList, fetchIncomesList, saveExpense, saveCategory, saveAccount, saveIncome }

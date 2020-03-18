@@ -12,7 +12,7 @@ export const SingleExpense = (props) => {
           fontSize: 17,
         }}
       >
-        {props.category.name}: {props.amount} kr from {props.account.name}
+        {props.amount} kr from {props.account.name} on {props.category.name}
       </Text>
     </View>
   )
@@ -31,5 +31,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     margin: 10,
-  },
+  }
 })
