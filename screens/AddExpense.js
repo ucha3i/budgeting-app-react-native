@@ -1,36 +1,53 @@
-import React, { useState } from 'react'
+import React, { Component, useState } from 'react'
+import { connect } from 'react-redux'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import styled from "styled-components"
 import { Ionicons } from '@expo/vector-icons'
+import { Dropdown } from 'react-native-material-dropdown';
+import api from '../api'
 
-export const AddExpense = (props) => {
-  const [expense, setExpense] = useState("")
-  const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("")
-  const [account, setAccount] = useState("")
+class AddExpense extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      amount: 0,
+      account: null,
+      category: null,
+      description: ""
+    }
+  }
 
-  const saveData = () => {
-    if (expense == "") {
+  saveData() {
+    if (this.state.amount == 0) {
       Alert.alert("Fill the expense")
       return
     }
 
-    if (account == "") {
+    if (this.state.account == null) {
       Alert.alert("Fill the account")
       return
     }
-    
-    if (category == "") {
+
+    if (this.state.category == null) {
       Alert.alert("Fill the category")
       return
     }
-  
-    expenses.push(new expense(lastId + 1, expense, description, { 'category': category, }))
+
+    api.saveExpense({
+      amount: this.state.amount,
+      account: this.state.account,
+      category: this.state.category,
+      description: this.state.description
+    })
+
     Alert.alert('Expense saved!')
   }
 
+  render(){
+  const accountData = this.props.accounts.map(account => ({value: account._id, label: account.name}))
+  const categoryData = this.props.categories.map(category => ({ value: category._id, label: category.name }))
+
   return (
-    
     <View style={styles.container}>
       
       <View style={styles.form}>
@@ -40,23 +57,23 @@ export const AddExpense = (props) => {
           keyboardType='numeric'
           placeholder={'Amount'}
           onChangeText={number => {
-            setExpense(number)
+            this.setState({amount: number})
           }}
         />
-        <TextInput
-          autoCorrect={false}
-          style={styles.formInput}
-          placeholder={'Account'}
-          onChangeText={text => {
-            setAccount(text)
+       
+        <Dropdown
+          label='Account'
+          data={accountData}
+          onChangeText={account => {
+            this.setState({ account: account})
           }}
         />
-        <TextInput
-          autoCorrect={false}
-          style={styles.formInput}
-          placeholder={'Category'}
-          onChangeText={text => {
-            setCategory(text)
+        
+        <Dropdown
+          label='Category'
+          data={categoryData}
+          onChangeText={category => {
+            this.setState({ category: category })
           }}
         />
         <TextInput
@@ -64,21 +81,21 @@ export const AddExpense = (props) => {
           style={styles.formInput}
           placeholder={'Description'}
           onChangeText={text => {
-            setDescription(text)
+            this.setState({ description: text })
           }}
         />
       </View>
 
       <View style={{flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center'}}>
         <IconButton>
-          <Ionicons onPress={() => saveData()}
+          <Ionicons onPress={() => this.saveData()}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-save"
           />
         </IconButton>
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Expenses")}
+          <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-list"
@@ -86,7 +103,7 @@ export const AddExpense = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-home"
@@ -94,7 +111,7 @@ export const AddExpense = (props) => {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Categories")}
+          <Ionicons onPress={() => this.props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
@@ -106,6 +123,9 @@ export const AddExpense = (props) => {
   )
 
 }
+}
+
+
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
@@ -169,3 +189,11 @@ icon: {
     fontSize: 50,
   }
 })
+
+const mapStateToProps = state => ({
+  expenses: state.expenses,
+  accounts: state.accounts,
+  categories: state.categories
+})
+
+export default connect(mapStateToProps)(AddExpense)  

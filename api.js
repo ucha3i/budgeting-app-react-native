@@ -22,6 +22,23 @@ const fetchExpensesList = () => {
   }
 }
 
+const saveExpense = (expense) => {
+  console.log("jestesmy w saveExpense")
+  console.log(JSON.stringify(expense))
+  const newExpense = fetch('http://localhost:8080/expenses', 
+    { method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(expense)
+  })
+  .then(res => res.json)
+  .then(res => {
+    return res
+  })
+  return newExpense
+}
+
 
 const fetchCategoriesList = () => {
   return dispatch => {
@@ -45,4 +62,4 @@ const fetchIncomesList = () => {
   }
 }
 
-export default { fetchAccountsList, fetchExpensesList, fetchCategoriesList, fetchIncomesList }
+export default { fetchAccountsList, fetchExpensesList, fetchCategoriesList, fetchIncomesList, saveExpense }

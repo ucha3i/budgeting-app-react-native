@@ -12,8 +12,9 @@ class HomeView extends Component {
   }
 
   componentWillMount() {
-    const { fetchAccounts } = this.props
+    const { fetchAccounts, fetchCategories } = this.props
     fetchAccounts()
+    fetchCategories()
   }
 
   welcomeMessage() {
@@ -109,7 +110,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchAccounts: api.fetchAccountsList
+  fetchAccounts: api.fetchAccountsList,
+  fetchCategories: api.fetchCategoriesList
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeView) 
