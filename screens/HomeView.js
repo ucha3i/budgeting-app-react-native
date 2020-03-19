@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components/native"
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons, FontAwesome } from '@expo/vector-icons'
 import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import api from '../api'
@@ -19,7 +19,7 @@ class HomeView extends Component {
 
   welcomeMessage() {
     if (this.props.accounts[0] !== undefined ) {
-      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your daily account </TextBig>)
+      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your {this.props.accounts[0].name} </TextBig>)
     }
     else {
       return (<TextBig> Add account and keep track of your expenses! </TextBig>)
@@ -30,9 +30,11 @@ class HomeView extends Component {
     return (
 
       <View>
+        <View style={styles.container}>
         { this.welcomeMessage() }
+        </View>
         
-        <View style={{ maxHeight: 80, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
+        <View style={styles.bottom}>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Expense")}
               color={"#e85a47"}
@@ -58,17 +60,16 @@ class HomeView extends Component {
             <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
               color={"#e85a47"}
               style={styles.icon}
-              name="ios-list-box"
+              name="ios-card"
             />
           </IconButton>
         </View>
+
       </View>
     )
   }}
 
 HomeView.navigationOptions = {
-  headerTitle: "...",
-  headerBackTitle: "Back",
   headerStyle: {
     backgroundColor: "black"
   }
@@ -103,7 +104,14 @@ const IconButton = styled.TouchableOpacity`
 const styles = StyleSheet.create({
   icon: {
     fontSize: 50,
-  }})
+  },
+  bottom: {
+    maxHeight: 90,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignContent: 'center',
+  }
+})
 
 const mapStateToProps = state => ({
   accounts: state.accounts
