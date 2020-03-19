@@ -22,7 +22,7 @@ class Categories extends Component {
   return (
     <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
-      <View style={{ height: "90%" }}> 
+      <View style={{ height: "89%" }}> 
       {this.props.categories.map(category => {
         return (<Category key={category["_id"]} name={category.name} />)})}
       </View>
@@ -34,6 +34,7 @@ class Categories extends Component {
             style={styles.icon}
             name="ios-add-circle"
           />
+          <TextSmall>Add category</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -42,6 +43,7 @@ class Categories extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
 
@@ -62,20 +64,27 @@ Categories.navigationOptions = {
   headerStyle: {
     backgroundColor: "#5C77FF"
   },
-  headerTitle: "Categories"
+  headerTitle: "Categories",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #d8c3a5;
-  border-radius: 5;
+  width: 85;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #5C77FF;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

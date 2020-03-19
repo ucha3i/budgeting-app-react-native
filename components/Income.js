@@ -9,9 +9,10 @@ export const Income = (props) => {
           color: '#48506B',
           margin: 7,
           fontSize: 17,
+          fontFamily: "Avenir Next"
         }}
       >
-        {props.income}: + {props.amount} kr to {props.account.name}
+        + {props.amount} kr to {props.account.name} / {props.income}
       </Text>
     </View>
   )

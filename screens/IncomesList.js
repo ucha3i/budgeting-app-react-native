@@ -22,7 +22,7 @@ class Incomes extends Component {
   return (
     <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
-      <View style={{ height: "90%" }}> 
+      <View style={{ height: "89%" }}> 
       {this.props.incomes.map(income => {
         return (<Income key={income["_id"]} income={income.description} amount={income.amount} account={income.account}/>)})}
       </View>
@@ -34,6 +34,7 @@ class Incomes extends Component {
             style={styles.icon}
             name="ios-add-circle"
           />
+          <TextSmall>Add income</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -42,6 +43,7 @@ class Incomes extends Component {
             style={styles.icon}
             name="ios-cash"
           />
+          <TextSmall>Accounts</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -50,6 +52,7 @@ class Incomes extends Component {
             style={styles.icon}
             name="ios-list"
           />
+          <TextSmall>Expenses</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -58,6 +61,7 @@ class Incomes extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
     </View>
@@ -78,20 +82,27 @@ Incomes.navigationOptions = {
   headerStyle: {
     backgroundColor: "#15BB87"
   },
-  headerTitle: "Incomes"
+  headerTitle: "Incomes",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #15BB87;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #15BB87;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

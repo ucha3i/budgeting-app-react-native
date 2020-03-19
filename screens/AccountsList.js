@@ -10,7 +10,7 @@ const Accounts = (props) => {
   return (
     <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
-      <View style={{ height: "90%" }}> 
+      <View style={{ height: "89%" }}> 
       {props.accounts.map(account => {
         return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />)})}
       </View>
@@ -22,6 +22,7 @@ const Accounts = (props) => {
             style={styles.icon}
             name="ios-add-circle"
           />
+          <TextSmall>Add account</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -30,6 +31,7 @@ const Accounts = (props) => {
             style={styles.icon}
             name="ios-list"
           />
+          <TextSmall>Expenses</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -38,6 +40,7 @@ const Accounts = (props) => {
             style={styles.icon}
             name="ios-card"
           />
+          <TextSmall>Incomes</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -46,6 +49,7 @@ const Accounts = (props) => {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
     </View>
@@ -70,20 +74,27 @@ Accounts.navigationOptions = {
   headerStyle: {
     backgroundColor: "#FFB722"
   },
-  headerTitle: "Accounts"
+  headerTitle: "Accounts",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #FFB722;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #FFB722;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

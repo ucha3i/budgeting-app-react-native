@@ -39,6 +39,7 @@ class AddIncome extends Component {
     })
 
     Alert.alert('Income added!')
+    this.props.navigation.replace("Incomes")
   }
 
   render() {
@@ -65,6 +66,7 @@ class AddIncome extends Component {
           label='Account'
             fontSize={24}
             baseColor={'#A8A8A8'}
+            labelTextStyle={{ fontFamily: "Avenir Next" }}
           data={accountData}
           onChangeText={account => {
             this.setState({ account: account })
@@ -90,6 +92,7 @@ class AddIncome extends Component {
             style={styles.icon}
             name="ios-save"
           />
+          <TextSmall>Save</TextSmall>
         </IconButton>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
@@ -97,6 +100,7 @@ class AddIncome extends Component {
             style={styles.icon}
             name="ios-card"
           />
+          <TextSmall>Incomes</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -105,9 +109,10 @@ class AddIncome extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
+        
       </View>
-
     </View>
   )
 }}
@@ -116,15 +121,22 @@ AddIncome.navigationOptions = {
   headerStyle: {
     backgroundColor: "#15BB87"
   },
-  headerTitle: "Add income"
+  headerTitle: "Add income",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #d8c3a5;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #15BB87;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
@@ -150,13 +162,14 @@ const styles = StyleSheet.create({
     height: 70,
     fontSize: 24,
     color: '#8e8d8a',
+    fontFamily: 'Avenir Next'
   },
   dropdown: {
     fontSize: 24,
     color: '#8e8d8a',
   },
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

@@ -22,7 +22,7 @@ class Expenses extends Component {
   return (
     <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
-      <View style={{ height: "90%" }}>  
+      <View style={{ height: "89%" }}>  
       {this.props.expenses.map(expense => {
         return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>)})}
       </View>
@@ -34,6 +34,7 @@ class Expenses extends Component {
             style={styles.icon}
             name="ios-add"
           />
+          <TextSmall>Add expense</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -42,6 +43,7 @@ class Expenses extends Component {
             style={styles.icon}
             name="ios-add-circle"
           />
+          <TextSmall>Add category</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -50,6 +52,7 @@ class Expenses extends Component {
             style={styles.icon}
             name="md-pricetags"
           />
+          <TextSmall>Categories</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -58,6 +61,7 @@ class Expenses extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
     </View>
@@ -75,22 +79,29 @@ Expenses.propTypes = {
 
 Expenses.navigationOptions = {
   headerStyle: {
-    backgroundColor: "#FC387A"
+    backgroundColor: "#FC387A",
   },
-  headerTitle: "Expenses"
+  headerTitle: "Expenses",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #FC387A;
-  border-radius: 5;
+  width: 85;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #FC387A;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

@@ -9,6 +9,7 @@ export const SingleAccount = (props) => {
           color: '#48506B',
           margin: 7,
           fontSize: 17,
+          fontFamily: "Avenir Next"
         }}
       >
         {props.name}: {props.saldo} kr

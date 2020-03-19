@@ -41,6 +41,7 @@ class AddExpense extends Component {
     })
 
     Alert.alert('Expense saved!')
+    this.props.navigation.replace("Expenses")
   }
 
   render(){
@@ -68,6 +69,7 @@ class AddExpense extends Component {
           label='Account'
             fontSize={24}
             baseColor={'#A8A8A8'}
+            labelTextStyle={{fontFamily:"Avenir Next"}}
           data={accountData}
           style={styles.dropdown}
           onChangeText={account => {
@@ -79,6 +81,7 @@ class AddExpense extends Component {
           label='Category'
             fontSize={24}
             baseColor={'#A8A8A8'}
+            labelTextStyle={{ fontFamily: "Avenir Next" }}
           data={categoryData}
           style={styles.dropdown}
           onChangeText={category => {
@@ -95,7 +98,18 @@ class AddExpense extends Component {
             this.setState({ description: text })
           }}
         />
+
+          {/* <Button
+            fontSize={50}
+            color={"#FC387A"}
+            baseColor={"#FC387A"}
+            // onPress={() => this._handlePress()}
+            title="Save">
+            Save
+          </Button> */}
+
       </View>
+
       </View>
 
       <View style={styles.bottom}>
@@ -105,6 +119,7 @@ class AddExpense extends Component {
             style={styles.icon}
             name="ios-save"
           />
+          <TextSmall>Save</TextSmall>
         </IconButton>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
@@ -112,6 +127,7 @@ class AddExpense extends Component {
             style={styles.icon}
             name="ios-list"
           />
+          <TextSmall>Expenses</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -120,6 +136,7 @@ class AddExpense extends Component {
             style={styles.icon}
             name="md-pricetags"
           />
+          <TextSmall>Categories</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -128,6 +145,7 @@ class AddExpense extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
 
@@ -139,16 +157,29 @@ AddExpense.navigationOptions = {
   headerStyle: {
     backgroundColor: "#FC387A"
   },
-  headerTitle: "Add expense"
+  headerTitle: "Add expense",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #FC387A;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
 `
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #FC387A;
+  fontFamily: "Avenir Next"
+`
+
+/* const Button = styled.Button`
+  width: 200;
+  padding-top: 100;
+
+` */
 
 const styles = StyleSheet.create({
   container: {
@@ -173,13 +204,15 @@ const styles = StyleSheet.create({
     height: 70,
     fontSize: 24,
     color: '#8e8d8a',
+    fontFamily: 'Avenir Next'
   },
   dropdown: {
     fontSize: 24,
     color: '#8e8d8a',
+    fontFamily: 'Avenir Next'
   },
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

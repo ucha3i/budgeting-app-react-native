@@ -26,6 +26,7 @@ class AddCategory extends Component {
     })
 
     Alert.alert('New category added!')
+    this.props.navigation.replace("Categories")
   } 
 
   render() {
@@ -62,6 +63,7 @@ class AddCategory extends Component {
             style={styles.icon}
             name="ios-save"
           />
+          <TextSmall>Save</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -70,6 +72,7 @@ class AddCategory extends Component {
             style={styles.icon}
             name="md-pricetags"
           />
+          <TextSmall>Categories</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -78,6 +81,7 @@ class AddCategory extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
     </View>
@@ -88,15 +92,22 @@ AddCategory.navigationOptions = {
   headerStyle: {
     backgroundColor: "#5C77FF"
   },
-  headerTitle: "Add category"
+  headerTitle: "Add category",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #5C77FF;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #5C77FF;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
@@ -122,9 +133,10 @@ const styles = StyleSheet.create({
     height: 70,
     fontSize: 24,
     color: '#8e8d8a',
+    fontFamily: 'Avenir Next'
   },
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

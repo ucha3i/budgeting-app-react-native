@@ -32,6 +32,7 @@ class AddAccount extends Component {
     })
 
     Alert.alert('New account added!')
+    this.props.navigation.replace("Accounts")
   }
 
   render() {
@@ -69,6 +70,7 @@ class AddAccount extends Component {
             style={styles.icon}
             name="ios-save"
           />
+          <TextSmall>Save</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -77,6 +79,7 @@ class AddAccount extends Component {
             style={styles.icon}
             name="ios-cash"
           />
+          <TextSmall>Accounts</TextSmall>
         </IconButton>
 
         <IconButton>
@@ -85,6 +88,7 @@ class AddAccount extends Component {
             style={styles.icon}
             name="ios-home"
           />
+          <TextSmall>Home</TextSmall>
         </IconButton>
       </View>
     </View>
@@ -95,15 +99,22 @@ AddAccount.navigationOptions = {
   headerStyle: {
     backgroundColor: "#FFB722"
   },
-  headerTitle: "Add account"
+  headerTitle: "Add account",
+  headerTitleStyle: {
+    fontFamily: 'Avenir Next'
+  }
 }
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #FFB722;
-  border-radius: 5;
+  width: 70;
+  border-radius: 10;
   align-items: center;
+`
+
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #FFB722;
+  fontFamily: "Avenir Next"
 `
 
 const styles = StyleSheet.create({
@@ -129,9 +140,10 @@ const styles = StyleSheet.create({
     height: 70,
     fontSize: 24,
     color: '#8e8d8a',
+    fontFamily: 'Avenir Next'
   },
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   }
 })
 

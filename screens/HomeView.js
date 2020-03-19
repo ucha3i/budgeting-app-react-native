@@ -22,7 +22,7 @@ class HomeView extends Component {
       return (<TextBig style={{ color: "#111111", fontWeight: "500" }}> You have <TextBig style={{ color: "#FFB722", fontWeight: "600" }}>{this.props.accounts[0].saldo} kr</TextBig> on your {this.props.accounts[0].name} account. </TextBig>)
     }
     else {
-      return (<TextBig> Add account and keep track of your expenses! </TextBig>)
+      return (<TextBig style={{ fontWeight: "500" }}> Add account and keep track of your expenses! </TextBig>)
     }
   }
 
@@ -41,6 +41,7 @@ class HomeView extends Component {
               style={styles.icon}
               name="ios-add"
             />
+            <TextSmall>Add expense</TextSmall>
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
@@ -48,6 +49,7 @@ class HomeView extends Component {
               style={styles.icon}
               name="ios-list"
             />
+            <TextSmall>Expenses</TextSmall>
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
@@ -55,6 +57,7 @@ class HomeView extends Component {
               style={styles.icon}
               name="ios-cash"
             />
+            <TextSmall>Accounts</TextSmall>
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
@@ -62,6 +65,7 @@ class HomeView extends Component {
               style={styles.icon}
               name="ios-card"
             />
+            <TextSmall>Incomes</TextSmall>
           </IconButton>
         </View>
 
@@ -85,25 +89,30 @@ const View = styled.View`
 `
 
 const TextBig = styled.Text`
-    font-size: 40; 
-    text-align: center;
-    padding-right: 25;
-    padding-left: 25;
-    margin-bottom: 15;
-    line-height: 60;
+  font-size: 40; 
+  text-align: center;
+  padding-right: 25;
+  padding-left: 25;
+  margin-bottom: 15;
+  line-height: 60;
+  fontFamily: "Avenir Next"
 `
 
 const IconButton = styled.TouchableOpacity`
-  width: 60;
-  border: 1px;
-  border-color: #FFB722;
+  width: 70;
   border-radius: 10;
   align-items: center;
 `
 
+const TextSmall = styled.Text`
+  font-size: 11; 
+  color: #FFB722;
+  fontFamily: "Avenir Next"
+`
+
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 50,
+    fontSize: 48,
   },
   bottom: {
     maxHeight: 90,

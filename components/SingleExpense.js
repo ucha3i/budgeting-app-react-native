@@ -10,6 +10,7 @@ export const SingleExpense = (props) => {
           color: '#48506B',
           margin: 7,
           fontSize: 17,
+          fontFamily: "Avenir Next"
         }}
       >
         {props.amount} kr from {props.account.name} on {props.category.name}
