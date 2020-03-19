@@ -21,9 +21,11 @@ class Categories extends Component {
   render() {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+
+      <View style={{ height: "90%" }}> 
       {this.props.categories.map(category => {
-        return (<Category key={category["_id"]} name={category.name} />);
-      })}
+        return (<Category key={category["_id"]} name={category.name} />)})}
+      </View>
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>

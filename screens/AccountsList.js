@@ -9,9 +9,11 @@ import { Ionicons } from '@expo/vector-icons'
 const Accounts = (props) => {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+
+      <View style={{ height: "90%" }}> 
       {props.accounts.map(account => {
-        return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />)}
-      )}
+        return (<SingleAccount key={account["_id"]} name={account.name} saldo={account.saldo} />)})}
+      </View>
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>

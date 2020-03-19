@@ -37,11 +37,14 @@ class AddAccount extends Component {
   render() {
   return (
     <View style={styles.container}>
+
+      <View style={{ height: "90%", justifyContent: "center" }}>
       <View style={styles.form}>
         <TextInput
           autoCorrect={false}
           style={styles.formInput}
           placeholder={'Account name'}
+            placeholderTextColor={'#A8A8A8'}
           onChangeText={name => {
             this.setState({ name: name })
           }}
@@ -51,13 +54,15 @@ class AddAccount extends Component {
           style={styles.formInput}
           keyboardType='numeric'
           placeholder={'Saldo'}
+            placeholderTextColor={'#A8A8A8'}
           onChangeText={saldo => {
             this.setState({ saldo: saldo })
           }}
         />
       </View>
+      </View>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
+      <View style={styles.bottom}>
         <IconButton>
           <Ionicons onPress={() => this.saveData()}
             color={"#e85a47"}
@@ -105,45 +110,18 @@ const styles = StyleSheet.create({
     margin: 15,
     backgroundColor: 'transparent',
     padding: 15,
-    borderRadius: 10,
+  },
+  bottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignContent: 'center'
   },
   formInput: {
-    backgroundColor: 'transparent',
-    margin: 5,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 10,
-    paddingRight: 5,
-    height: 50,
-    borderColor: 'gray',
+    borderBottomColor: "#A8A8A8",
     borderBottomWidth: 1,
-    borderBottomColor: 'white',
-    borderWidth: 1,
+    height: 70,
     fontSize: 24,
     color: '#8e8d8a',
-  },
-  formPicker: {
-    margin: 10,
-    padding: 10,
-    width: 300,
-    borderColor: 'gray',
-    borderWidth: 1
-  },
-  upper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  lower: {
-    color: '#8e8d8a',
-  },
-  title: {
-    color: '#413c69',
-    fontSize: 21,
-    fontWeight: 'bold',
-  },
-  description: {
-    color: '#413c69',
-    fontSize: 18,
   },
   icon: {
     fontSize: 50,

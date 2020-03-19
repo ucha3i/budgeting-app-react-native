@@ -21,10 +21,10 @@ class Incomes extends Component {
   render() {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+      <View style={{ height: "90%" }}> 
       {this.props.incomes.map(income => {
-        return (<Income key={income["_id"]} income={income.description} amount={income.amount} account={income.account}/>);
-      }
-      )}
+        return (<Income key={income["_id"]} income={income.description} amount={income.amount} account={income.account}/>)})}
+      </View>
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>

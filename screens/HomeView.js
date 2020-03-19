@@ -96,7 +96,7 @@ const TextBig = styled.Text`
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
+  border-color: #e98074;
   border-radius: 5;
   align-items: center;
 `
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignContent: 'center',
+    // backgroundColor: 'lightgrey'
   }
 })
 

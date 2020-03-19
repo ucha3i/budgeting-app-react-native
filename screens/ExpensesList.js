@@ -21,9 +21,11 @@ class Expenses extends Component {
   render() {
   return (
     <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+
+      <View style={{ height: "90%" }}>  
       {this.props.expenses.map(expense => {
-        return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>)}
-      )}
+        return (<SingleExpense key={expense["_id"]} category={expense.category} amount={expense.amount} account={expense.account}/>)})}
+      </View>
 
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
