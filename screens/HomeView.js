@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components/native"
-import { Ionicons, FontAwesome } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import api from '../api'
@@ -86,6 +86,7 @@ const View = styled.View`
 const TextBig = styled.Text`
     color: #e85a47;
     font-size: 40; 
+    font-weight: 600;
     text-align: center;
     padding-right: 25;
     padding-left: 25;
@@ -96,7 +97,7 @@ const TextBig = styled.Text`
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #e98074;
+  border-color: #d8c3a5;
   border-radius: 5;
   align-items: center;
 `
