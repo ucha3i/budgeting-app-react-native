@@ -115,18 +115,18 @@ class AddExpense extends Component {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
-            style={styles.icon}
-            name="ios-home"
-          />
-        </IconButton>
-
-        <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Categories")}
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-home"
           />
         </IconButton>
       </View>
@@ -134,7 +134,6 @@ class AddExpense extends Component {
     </View>
   )
 }}
-
 
 const IconButton = styled.TouchableOpacity`
   width: 60;
@@ -172,29 +171,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#8e8d8a',
   },
-  /* formPicker: {
-    margin: 10,
-    padding: 10,
-    width: 300,
-    borderColor: 'grey',
-    borderWidth: 1
-  }, */
-  /* upper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  }, */
-  /* lower: {
-    color: '#8e8d8a',
-  }, */
- /*  title: {
-    color: '#413c69',
-    fontSize: 21,
-    fontWeight: 'bold',
-  }, */
-  /* description: {
-    color: '#413c69',
-    fontSize: 18,
-  }, */
   icon: {
     fontSize: 50,
   }

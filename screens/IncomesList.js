@@ -36,18 +36,26 @@ class Incomes extends Component {
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
-            style={styles.icon}
-            name="ios-home"
-          />
-        </IconButton>
-
-        <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
             color={"#e85a47"}
             style={styles.icon}
             name="ios-cash"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => props.navigation.replace("Expenses")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-list"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-home"
           />
         </IconButton>
       </View>

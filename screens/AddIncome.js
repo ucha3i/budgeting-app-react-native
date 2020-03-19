@@ -89,7 +89,7 @@ class AddIncome extends Component {
           <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-list-box"
+            name="ios-card"
           />
         </IconButton>
 

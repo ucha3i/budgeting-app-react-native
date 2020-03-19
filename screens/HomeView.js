@@ -19,7 +19,7 @@ class HomeView extends Component {
 
   welcomeMessage() {
     if (this.props.accounts[0] !== undefined ) {
-      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your {this.props.accounts[0].name} </TextBig>)
+      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your {this.props.accounts[0].name} account. </TextBig>)
     }
     else {
       return (<TextBig> Add account and keep track of your expenses! </TextBig>)
@@ -39,7 +39,7 @@ class HomeView extends Component {
             <Ionicons onPress={() => this.props.navigation.replace("Expense")}
               color={"#e85a47"}
               style={styles.icon}
-              name="ios-add-circle"
+              name="ios-add"
             />
           </IconButton>
           <IconButton>

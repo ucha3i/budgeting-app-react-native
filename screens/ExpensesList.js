@@ -30,15 +30,15 @@ class Expenses extends Component {
           <Ionicons onPress={() => this.props.navigation.replace("Expense")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-add-circle"
+            name="ios-add"
           />
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => this.props.navigation.replace("Home")}
+          <Ionicons onPress={() => this.props.navigation.replace("Category")}
             color={"#e85a47"}
             style={styles.icon}
-            name="ios-home"
+            name="ios-add-circle"
           />
         </IconButton>
 
@@ -47,6 +47,14 @@ class Expenses extends Component {
             color={"#e85a47"}
             style={styles.icon}
             name="md-pricetags"
+          />
+        </IconButton>
+
+        <IconButton>
+          <Ionicons onPress={() => this.props.navigation.replace("Home")}
+            color={"#e85a47"}
+            style={styles.icon}
+            name="ios-home"
           />
         </IconButton>
       </View>
