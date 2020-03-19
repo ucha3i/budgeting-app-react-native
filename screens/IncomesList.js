@@ -20,7 +20,8 @@ class Incomes extends Component {
 
   render() {
   return (
-    <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+    <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
+
       <View style={{ height: "90%" }}> 
       {this.props.incomes.map(income => {
         return (<Income key={income["_id"]} income={income.description} amount={income.amount} account={income.account}/>)})}
@@ -29,7 +30,7 @@ class Incomes extends Component {
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Income")}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-add-circle"
           />
@@ -37,15 +38,15 @@ class Incomes extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-cash"
           />
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => props.navigation.replace("Expenses")}
-            color={"#e85a47"}
+          <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-list"
           />
@@ -53,7 +54,7 @@ class Incomes extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-home"
           />
@@ -73,10 +74,17 @@ Incomes.propTypes = {
   ).isRequired
 }
 
+Incomes.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#15BB87"
+  },
+  headerTitle: "Incomes"
+}
+
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
+  border-color: #15BB87;
   border-radius: 5;
   align-items: center;
 `

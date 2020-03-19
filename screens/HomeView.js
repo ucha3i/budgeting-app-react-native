@@ -19,7 +19,7 @@ class HomeView extends Component {
 
   welcomeMessage() {
     if (this.props.accounts[0] !== undefined ) {
-      return (<TextBig> You have {this.props.accounts[0].saldo} kr on your {this.props.accounts[0].name} account. </TextBig>)
+      return (<TextBig style={{ color: "#111111", fontWeight: "500" }}> You have <TextBig style={{ color: "#FFB722", fontWeight: "600" }}>{this.props.accounts[0].saldo} kr</TextBig> on your {this.props.accounts[0].name} account. </TextBig>)
     }
     else {
       return (<TextBig> Add account and keep track of your expenses! </TextBig>)
@@ -37,28 +37,28 @@ class HomeView extends Component {
         <View style={styles.bottom}>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Expense")}
-              color={"#e85a47"}
+              color={"#FFB722"}
               style={styles.icon}
               name="ios-add"
             />
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Expenses")}
-              color={"#e85a47"}
+              color={"#FFB722"}
               style={styles.icon}
               name="ios-list"
             />
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Accounts")}
-              color={"#e85a47"}
+              color={"#FFB722"}
               style={styles.icon}
               name="ios-cash"
             />
           </IconButton>
           <IconButton>
             <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
-              color={"#e85a47"}
+              color={"#FFB722"}
               style={styles.icon}
               name="ios-card"
             />
@@ -71,8 +71,9 @@ class HomeView extends Component {
 
 HomeView.navigationOptions = {
   headerStyle: {
-    backgroundColor: "black"
-  }
+    backgroundColor: "#FFB722"
+  },
+  headerTitle: ""
 }
 
 const View = styled.View`
@@ -80,13 +81,11 @@ const View = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #eae7dc;
+  background-color: #F5F5F5;
 `
 
 const TextBig = styled.Text`
-    color: #e85a47;
     font-size: 40; 
-    font-weight: 600;
     text-align: center;
     padding-right: 25;
     padding-left: 25;
@@ -97,8 +96,8 @@ const TextBig = styled.Text`
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
-  border-radius: 5;
+  border-color: #FFB722;
+  border-radius: 10;
   align-items: center;
 `
 
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignContent: 'center',
-    // backgroundColor: 'lightgrey'
+    // backgroundColor: '#A1A5B9'
   }
 })
 

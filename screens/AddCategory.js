@@ -58,7 +58,7 @@ class AddCategory extends Component {
       <View style={styles.bottom}>
         <IconButton>
           <Ionicons onPress={() => this.saveData()}
-            color={"#e85a47"}
+            color={"#5C77FF"}
             style={styles.icon}
             name="ios-save"
           />
@@ -66,7 +66,7 @@ class AddCategory extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Categories")}
-            color={"#e85a47"}
+            color={"#5C77FF"}
             style={styles.icon}
             name="md-pricetags"
           />
@@ -74,7 +74,7 @@ class AddCategory extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#5C77FF"}
             style={styles.icon}
             name="ios-home"
           />
@@ -84,17 +84,24 @@ class AddCategory extends Component {
   )
 }}
 
+AddCategory.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#5C77FF"
+  },
+  headerTitle: "Add category"
+}
+
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
+  border-color: #5C77FF;
   border-radius: 5;
   align-items: center;
 `
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#eae7dc',
+    backgroundColor: '#F5F5F5',
     flex: 1,
     justifyContent: "center",
   },

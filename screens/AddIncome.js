@@ -86,14 +86,14 @@ class AddIncome extends Component {
       <View style={styles.bottom}>
         <IconButton>
           <Ionicons onPress={() => this.saveData()}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-save"
           />
         </IconButton>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-card"
           />
@@ -101,7 +101,7 @@ class AddIncome extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#15BB87"}
             style={styles.icon}
             name="ios-home"
           />
@@ -111,6 +111,13 @@ class AddIncome extends Component {
     </View>
   )
 }}
+
+AddIncome.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#15BB87"
+  },
+  headerTitle: "Add income"
+}
 
 const IconButton = styled.TouchableOpacity`
   width: 60;
@@ -122,7 +129,7 @@ const IconButton = styled.TouchableOpacity`
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#eae7dc',
+    backgroundColor: '#F5F5F5',
     flex: 1,
     justifyContent: "center",
   },

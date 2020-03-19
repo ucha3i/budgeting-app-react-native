@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const Accounts = (props) => {
   return (
-    <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+    <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
       <View style={{ height: "90%" }}> 
       {props.accounts.map(account => {
@@ -18,7 +18,7 @@ const Accounts = (props) => {
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
           <Ionicons onPress={() => props.navigation.replace("Account")}
-            color={"#e85a47"}
+            color={"#FFB722"}
             style={styles.icon}
             name="ios-add-circle"
           />
@@ -26,15 +26,15 @@ const Accounts = (props) => {
 
         <IconButton>
           <Ionicons onPress={() => props.navigation.replace("Expenses")}
-            color={"#e85a47"}
+            color={"#FFB722"}
             style={styles.icon}
             name="ios-list"
           />
         </IconButton>
 
         <IconButton>
-          <Ionicons onPress={() => this.props.navigation.replace("Incomes")}
-            color={"#e85a47"}
+          <Ionicons onPress={() => props.navigation.replace("Incomes")}
+            color={"#FFB722"}
             style={styles.icon}
             name="ios-card"
           />
@@ -42,7 +42,7 @@ const Accounts = (props) => {
 
         <IconButton>
           <Ionicons onPress={() => props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#FFB722"}
             style={styles.icon}
             name="ios-home"
           />
@@ -66,10 +66,17 @@ Accounts.propTypes = {
   ).isRequired
 }
 
+Accounts.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#FFB722"
+  },
+  headerTitle: "Accounts"
+}
+
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
+  border-color: #FFB722;
   border-radius: 5;
   align-items: center;
 `

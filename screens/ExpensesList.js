@@ -20,7 +20,7 @@ class Expenses extends Component {
 
   render() {
   return (
-    <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+    <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
       <View style={{ height: "90%" }}>  
       {this.props.expenses.map(expense => {
@@ -30,7 +30,7 @@ class Expenses extends Component {
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Expense")}
-            color={"#e85a47"}
+            color={"#FC387A"}
             style={styles.icon}
             name="ios-add"
           />
@@ -38,7 +38,7 @@ class Expenses extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Category")}
-            color={"#e85a47"}
+            color={"#FC387A"}
             style={styles.icon}
             name="ios-add-circle"
           />
@@ -46,7 +46,7 @@ class Expenses extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Categories")}
-            color={"#e85a47"}
+            color={"#FC387A"}
             style={styles.icon}
             name="md-pricetags"
           />
@@ -54,7 +54,7 @@ class Expenses extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#FC387A"}
             style={styles.icon}
             name="ios-home"
           />
@@ -73,10 +73,17 @@ Expenses.propTypes = {
   ).isRequired
 }
 
+Expenses.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#FC387A"
+  },
+  headerTitle: "Expenses"
+}
+
 const IconButton = styled.TouchableOpacity`
   width: 60;
   border: 1px;
-  border-color: #d8c3a5;
+  border-color: #FC387A;
   border-radius: 5;
   align-items: center;
 `

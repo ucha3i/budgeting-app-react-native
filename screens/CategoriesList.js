@@ -20,7 +20,7 @@ class Categories extends Component {
 
   render() {
   return (
-    <View style={{ backgroundColor: '#eae7dc', minHeight: '100%' }}>
+    <View style={{ backgroundColor: '#F5F5F5', minHeight: '100%' }}>
 
       <View style={{ height: "90%" }}> 
       {this.props.categories.map(category => {
@@ -30,7 +30,7 @@ class Categories extends Component {
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Category")}
-            color={"#e85a47"}
+            color={"#5C77FF"}
             style={styles.icon}
             name="ios-add-circle"
           />
@@ -38,7 +38,7 @@ class Categories extends Component {
 
         <IconButton>
           <Ionicons onPress={() => this.props.navigation.replace("Home")}
-            color={"#e85a47"}
+            color={"#5C77FF"}
             style={styles.icon}
             name="ios-home"
           />
@@ -56,6 +56,13 @@ Categories.propTypes = {
       name: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
+}
+
+Categories.navigationOptions = {
+  headerStyle: {
+    backgroundColor: "#5C77FF"
+  },
+  headerTitle: "Categories"
 }
 
 const IconButton = styled.TouchableOpacity`
